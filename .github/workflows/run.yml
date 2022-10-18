@@ -30,16 +30,14 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run script
-        run: yarn start
+        run: echo "mail=$(yarn start)\n" >> $GITHUB_OUTPUT
         id: run_script
         env:
-          SLACK_MESSAGE: ${{join(steps.run_tests.outputs.*, '\n')}}
-          SLACK_TITLE: CI Test Suite
           PANIERBIO_LOGIN: ${{ secrets.PANIERBIO_LOGIN }}
           PANIERBIO_PASSWORD: ${{ secrets.PANIERBIO_PASSWORD }}
       - uses: cinotify/github-action@main
         with:
           to: 'patrice@desaintsteban.fr'
           subject: 'Panier bio solidaire'
-          body: ${{join(steps.run_script.outputs.*, '\n')}}
+          body: ${{steps.run_script.outputs.mail}}
 
