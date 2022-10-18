@@ -30,16 +30,10 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run script
-        run: |
-          yarn start
-          echo "mail=$(cat mail.output)\n" >> $GITHUB_OUTPUT
+        run: yarn start
         id: run_script
         env:
           PANIERBIO_LOGIN: ${{ secrets.PANIERBIO_LOGIN }}
           PANIERBIO_PASSWORD: ${{ secrets.PANIERBIO_PASSWORD }}
-      - uses: cinotify/github-action@main
-        with:
-          to: 'patrice@desaintsteban.fr'
-          subject: 'Panier bio solidaire'
-          body: ${{steps.run_script.outputs.mail}}
+          MAILGUN_APIKEY: ${{ secrets.MAILGUN_APIKEY }}
 

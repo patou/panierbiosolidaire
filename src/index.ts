@@ -1,5 +1,9 @@
 import playwright from 'playwright'
-import fs from 'fs/promises'
+import mailgun from 'mailgun-js';
+
+const mailgunOptions: mailgun.ConstructorParams = {apiKey: process.env.MAILGUN_APIKEY || 'demo', domain: 'todo.patou.dev', host: "api.eu.mailgun.net"}
+const mg = mailgun(mailgunOptions);
+
 
 const run = async () => {
     if (!process.env.PANIERBIO_LOGIN || !process.env.PANIERBIO_PASSWORD) {
@@ -31,14 +35,24 @@ const run = async () => {
     console.log(titre)
     const content = await page.locator('section.compte .article__texte').innerText()
     console.log(content)
-    fs.writeFile('./mail.output', `
+    const body = `
 ${titre}
 
 ${content}
 
 -- 
 Panier bio solidaire
-    `)
+    `
+
+    const data : mailgun.messages.SendData = {
+        from: 'Patou Amp <amp@todo.patou.dev>',
+        to: 'patrice@desaintsteban.fr',
+        subject: 'Panier bio solidaire',
+        text: body,
+        'o:dkim': true,
+      }
+      console.log(data)
+      await mg.messages().send(data);
 
     await browser.close();
 };
