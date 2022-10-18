@@ -51,8 +51,30 @@ Panier bio solidaire
         text: body,
         'o:dkim': true,
       }
-      console.log(data)
-      await mg.messages().send(data);
+    const filename = titre.replace('Votre panier du ', "Croq'actus du ")
+    console.log(`Check ... ${filename}`)
+    const link = page.getByRole('link', { name: new RegExp(filename, 'gi') })
+    if (await link.count() > 0) {
+        console.log(`Download ... ${filename}`)
+        const [ download ] = await Promise.all([
+            // Start waiting for the download
+            page.waitForEvent('download'),
+            link.click()
+        ])
+        const path = await download.path();
+        console.log(path)
+        if (path) {
+            data.attachment = new mg.Attachment({
+                data: path,
+                filename: download.suggestedFilename(),
+            })
+        }
+    }
+    
+      if (mailgunOptions.apiKey !== 'demo') {
+        console.log(data)
+        await mg.messages().send(data);
+      }
 
     await browser.close();
 };
