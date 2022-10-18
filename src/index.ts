@@ -45,8 +45,8 @@ Panier bio solidaire
     `
 
     const data : mailgun.messages.SendData = {
-        from: 'Patou Amp <amp@todo.patou.dev>',
-        to: 'patrice@desaintsteban.fr',
+        from: 'Panier bio solidaire <amp@todo.patou.dev>',
+        to: process.env.PANIERBIO_LOGIN,
         subject: 'Panier bio solidaire',
         text: body,
         'o:dkim': true,
