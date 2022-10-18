@@ -47,7 +47,7 @@ Panier bio solidaire
     const data : mailgun.messages.SendData = {
         from: 'Panier bio solidaire <amp@todo.patou.dev>',
         to: process.env.PANIERBIO_LOGIN,
-        subject: 'Panier bio solidaire',
+        subject: titre,
         text: body,
         'o:dkim': true,
       }
@@ -68,6 +68,7 @@ Panier bio solidaire
                 data: path,
                 filename: download.suggestedFilename(),
             })
+            data.subject = filename
         }
     }
     
