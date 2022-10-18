@@ -1,0 +1,30 @@
+{
+  "name": "panierbiosolidaire",
+  "version": "1.0.0",
+  "description": "Récupère les paniers de légumes toutes les semaines",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patou/panierbiosolidaire.git"
+  },
+  "keywords": [
+    "playwright"
+  ],
+  "author": "Patrice de Saint Steban <patrice@desaintsteban.fr>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/patou/panierbiosolidaire/issues"
+  },
+  "homepage": "https://github.com/patou/panierbiosolidaire#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.0",
+    "playwright": "^1.27.1",
+    "prettier": "2.7.1",
+    "ts-node": "10.9.1",
+    "typescript": "4.7.4"
+  }
+}
