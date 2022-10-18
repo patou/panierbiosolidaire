@@ -1,4 +1,5 @@
 import playwright from 'playwright'
+import fs from 'fs/promises'
 
 const run = async () => {
     if (!process.env.PANIERBIO_LOGIN || !process.env.PANIERBIO_PASSWORD) {
@@ -26,8 +27,18 @@ const run = async () => {
     await page.waitForLoadState()
     await page.screenshot({ path: 'screen/compte.png' })
     console.log(await page.title())
-    console.log(await page.locator('section.compte h2.article__titre').innerText())
-    console.log(await page.locator('section.compte .article__texte').innerText())
+    const titre = await page.locator('section.compte h2.article__titre').innerText()
+    console.log(titre)
+    const content = await page.locator('section.compte .article__texte').innerText()
+    console.log(content)
+    fs.writeFile('./mail.output', `
+${titre}
+
+${content}
+
+-- 
+Panier bio solidaire
+    `)
 
     await browser.close();
 };
