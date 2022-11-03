@@ -8,7 +8,7 @@ Si vous voulez utiliser ce script, il est nécessaire de forker le repos, et d'a
 
 Pour l'utiliser, il faut définir trois variable d'environnement, dans les settings de github action.
 - PANIERBIO_LOGIN : Email sur le site https://www.lespaniersbiosolidaires.fr/
-- PANIERBIO_PASS : Mot de passe sur le site https://www.lespaniersbiosolidaires.fr/
+- PANIERBIO_PASSWORD : Mot de passe sur le site https://www.lespaniersbiosolidaires.fr/
 - MAILGUN_APIKEY : Clé d'api pour mailgun.
 
 
@@ -16,7 +16,7 @@ Pour l'utiliser, il faut définir trois variable d'environnement, dans les setti
 Pour lancer en local, il faut exporter les trois varibles d'envrionnements :
 ```sh
 export PANIERBIO_LOGIN=""
-export PANIERBIO_PASS=""
+export PANIERBIO_PASSWORD=""
 export MAILGUN_APIKEY=""
 ```
 Puis lancer l'application
