@@ -51,7 +51,7 @@ Panier bio solidaire
         text: body,
         'o:dkim': true,
       }
-    const filename = titre.replace('Votre panier du ', "Croq'actus du ").replace(/ 0([1-9]) /, " $1 ")
+    const filename = titre.replace('Votre panier du ', "Croq'actus du ").replace(/ 01 /, " 1er ").replace(/ 0([2-9]) /, " $1 ")
     console.log(`Check ... ${filename}`)
     const link = page.getByRole('link', { name: new RegExp(filename, 'gi') })
     if (await link.count() > 0) {
