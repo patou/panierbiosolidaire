@@ -52,9 +52,11 @@ Panier bio solidaire
         'o:dkim': true,
       }
     const filename = titre.replace('Votre panier du ', "Croq'actus du ").replace(/ 01 /, " 1er ").replace(/ 0([2-9]) /, " $1 ")
-    console.log(`Check ... ${filename}`)
-    const link = page.getByRole('link', { name: new RegExp(filename, 'gi') })
-    if (await link.count() > 0) {
+    // Si le titre n'est pas renseigné
+    if (filename.trim().length() > 0) {
+      console.log(`Check ... ${filename}`)
+      const link = page.getByRole('link', { name: new RegExp(filename, 'gi') })
+      if (await link.count() > 0) {
         console.log(`Download ... ${filename}`)
         const [ download ] = await Promise.all([
             // Start waiting for the download
@@ -70,12 +72,13 @@ Panier bio solidaire
             })
             data.subject = filename
         }
+      }
     }
     
-      if (mailgunOptions.apiKey !== 'demo') {
-        console.log(data)
-        await mg.messages().send(data);
-      }
+    if (mailgunOptions.apiKey !== 'demo') {
+      console.log(data)
+      await mg.messages().send(data);
+    }
 
     await browser.close();
 };
