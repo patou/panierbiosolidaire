@@ -1,6 +1,6 @@
 # Panier Bio Solidaire
 
-Permet de récupérer le panier de légume toute les semaines.
+Permet de récupérer les informations sur le panier de légume de la semaine et l'envoyer par email.
 Il se connecte au site https://www.lespaniersbiosolidaires.fr/ et récupère le panier tous les vendredi à 18h30 et les lundi à 18h30, il récupère le croc'actu.
 
 Si vous voulez utiliser ce script, il est nécessaire de forker le repos, et d'activer github action sur le repos.
