@@ -28,7 +28,7 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "@types/mailgun-js": "^0.22.12",
+    "@types/mailgun-js": "^0.22.13",
     "mailgun-js": "^0.22.0"
   }
 }
