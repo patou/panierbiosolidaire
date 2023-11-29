@@ -28,7 +28,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install
-        run: yarn install && yarn playwright install 
+        run: yarn install && yarn playwright install chromium
 
       # Runs a set of commands using the runners shell
       - name: Run script
@@ -38,4 +38,5 @@ jobs:
           PANIERBIO_LOGIN: ${{ secrets.PANIERBIO_LOGIN }}
           PANIERBIO_PASSWORD: ${{ secrets.PANIERBIO_PASSWORD }}
           MAILGUN_APIKEY: ${{ secrets.MAILGUN_APIKEY }}
+          SEND_EMAIL: "${{ github.event_name == 'schedule' && 'yes' || 'no' }}"
 

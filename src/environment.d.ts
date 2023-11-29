@@ -4,6 +4,7 @@ declare global {
         PANIERBIO_LOGIN: string;
         PANIERBIO_PASSWORD: string;
         NODE_ENV: 'development' | 'production';
+        SEND_EMAIL: string;
       }
     }
   }

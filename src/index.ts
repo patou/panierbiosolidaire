@@ -74,12 +74,25 @@ Panier bio solidaire
         }
       }
     }
-    
-    if (mailgunOptions.apiKey !== 'demo') {
-      console.log(data)
+
+    if (mailgunOptions.apiKey !== 'demo' && process.env.SEND_EMAIL === 'yes') {
+      logEmail("Envoi de l'email", data);
       await mg.messages().send(data);
+    }
+    else {
+      logEmail('Email non envoyé', data);
     }
 
     await browser.close();
 };
 run();
+
+function logEmail(msg : string, data : mailgun.messages.SendData) {
+  console.log(`${msg} :
+à: ${data['to']}
+sujet: ${data['subject']}
+  
+${data['text']?.replaceAll('\\n', '\n')}
+${data['attachment'] ? `attachement: ${(data['attachment'] as any).filename}`: ''}
+`);
+}

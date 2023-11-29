@@ -19,7 +19,8 @@ Pour lancer en local, il faut exporter les trois variables d'environnements :
 ```sh
 export PANIERBIO_LOGIN=""
 export PANIERBIO_PASSWORD=""
-export MAILGUN_APIKEY=""
+export MAILGUN_APIKEY="demo"
+export SEND_EMAIL="no"
 ```
 Puis lancer l'application
 ```shell
