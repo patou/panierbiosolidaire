@@ -16,27 +16,25 @@ const run = async () => {
     const page = await browser.newPage();
     await page.goto('https://www.lespaniersbiosolidaires.fr/')
     console.log(await page.title())
-    await page.getByRole('link', { name: 'Se connecter' }).click();
-    await page.screenshot({ path: 'screen/login1.png' })
-    await page.locator('div[role="document"]:has-text("Connexion à votre compte Identifiant / Email Mot de passe Mot de passe oublié ? ") input[name="login"]').fill(login);
-    await page.locator('div[role="document"]:has-text("Connexion à votre compte Identifiant / Email Mot de passe Mot de passe oublié ? ") input[name="password"]').fill(pass);
-    await page.screenshot({ path: 'screen/login2.png' })
+    await page.getByRole('link', { name: 'Connexion' }).click();
+    await page.waitForLoadState();
+    await page.locator('#client_login').fill(login);
+    await page.locator('#client_pwd').fill(pass);
+    await page.screenshot({ path: 'screen/login2.png' });
     await Promise.all([
         await page.waitForLoadState(),
-        await page.locator('div[role="document"]:has-text("Connexion à votre compte Identifiant / Email Mot de passe Mot de passe oublié ? ")').getByRole('button', { name: 'Se connecter' }).click()
+        await page.locator('#btn_login').click()
     ])
     await page.screenshot({ path: 'screen/login3.png' })
-    
-    await page.goto('https://www.lespaniersbiosolidaires.fr/index.php?controleur=compte&action=compositions')
-    await page.waitForLoadState()
-    await page.screenshot({ path: 'screen/compte.png' })
-    console.log(await page.title())
-    const titre = await page.locator('section.compte h2.article__titre').innerText()
+    await page.waitForURL('https://www.lespaniersbiosolidaires.fr/espaceclient');
+    console.log(await page.title());
+    await page.screenshot({ path: 'screen/account.png' });
+    const titre = await page.locator('.pill').innerText()
     console.log(titre)
-    const content = await page.locator('section.compte .article__texte').innerText()
+    const content = await page.locator('.compo-bloc').innerText()
     console.log(content)
     const body = `
-${titre}
+Mon panier ${titre}
 
 ${content}
 
@@ -47,10 +45,11 @@ Panier bio solidaire
     const data : mailgun.messages.SendData = {
         from: 'Panier bio solidaire <amp@todo.patou.dev>',
         to: process.env.PANIERBIO_LOGIN,
-        subject: titre,
+        subject: `Mon panier ${titre}`,
         text: body,
         'o:dkim': true,
       }
+    /*
     const filename = titre.replace('Votre panier du ', "Croq'actus du ").replace(/ 01 /, " 1er ").replace(/ 0([2-9]) /, " $1 ")
     // Si le titre n'est pas renseigné
     if (filename.trim().length > 0) {
@@ -74,6 +73,7 @@ Panier bio solidaire
         }
       }
     }
+    */
 
     if (mailgunOptions.apiKey !== 'demo' && process.env.SEND_EMAIL === 'yes') {
       logEmail("Envoi de l'email", data);
