@@ -15,6 +15,11 @@ Pour l'utiliser, il faut définir trois variables d'environnement, dans les sett
 
 ## Local
 
+Installer les dépendances
+```sh
+npm install
+```
+
 Pour lancer en local, il faut exporter les trois variables d'environnements :
 ```sh
 export PANIERBIO_LOGIN=""
@@ -22,6 +27,11 @@ export PANIERBIO_PASSWORD=""
 export MAILGUN_APIKEY="demo"
 export SEND_EMAIL="no"
 ```
+Installer playwright:
+```sh
+npx playwright install
+```
+
 Puis lancer l'application
 ```shell
 npm start

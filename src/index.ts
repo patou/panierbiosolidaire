@@ -1,8 +1,10 @@
 import playwright from 'playwright'
-import mailgun from 'mailgun-js';
+import FormData from 'form-data';
+import Mailgun, { MailgunMessageData } from 'mailgun.js';
 
-const mailgunOptions: mailgun.ConstructorParams = {apiKey: process.env.MAILGUN_APIKEY || 'demo', domain: 'todo.patou.dev', host: "api.eu.mailgun.net"}
-const mg = mailgun(mailgunOptions);
+const mailgun = new Mailgun(FormData);
+const mailgunOptions = {username: 'api', key: process.env.MAILGUN_APIKEY || 'demo', url: "https://api.eu.mailgun.net"}
+const mg = mailgun.client(mailgunOptions);
 
 
 const run = async () => {
@@ -42,7 +44,7 @@ ${content}
 Panier bio solidaire
     `
 
-    const data : mailgun.messages.SendData = {
+    const data : MailgunMessageData = {
         from: 'Panier bio solidaire <amp@todo.patou.dev>',
         to: process.env.PANIERBIO_LOGIN,
         subject: `Mon panier ${titre}`,
@@ -75,9 +77,9 @@ Panier bio solidaire
     }
     */
 
-    if (mailgunOptions.apiKey !== 'demo' && process.env.SEND_EMAIL === 'yes') {
+    if (mailgunOptions.key !== 'demo' && process.env.SEND_EMAIL === 'yes') {
       logEmail("Envoi de l'email", data);
-      await mg.messages().send(data);
+      await mg.messages.create('todo.patou.dev', data);
     }
     else {
       logEmail('Email non envoyé', data);
@@ -87,7 +89,7 @@ Panier bio solidaire
 };
 run();
 
-function logEmail(msg : string, data : mailgun.messages.SendData) {
+function logEmail(msg : string, data : MailgunMessageData) {
   console.log(`${msg} :
 à: ${data['to']}
 sujet: ${data['subject']}
