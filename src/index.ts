@@ -1,7 +1,7 @@
 import playwright from 'playwright'
 import FormData from 'form-data';
-import Mailgun, { MailgunMessageData } from 'mailgun.js';
-import { cp } from 'fs';
+import Mailgun from 'mailgun.js';
+import { MailgunMessageData } from 'mailgun.js/definitions';
 
 const mailgun = new Mailgun(FormData);
 const mailgunOptions = { username: 'api', key: process.env.MAILGUN_APIKEY || 'demo', url: "https://api.eu.mailgun.net" }

@@ -21,15 +21,15 @@
   },
   "homepage": "https://github.com/patou/panierbiosolidaire#readme",
   "devDependencies": {
-    "@types/node": "^22.10.5",
-    "playwright": "^1.48.2",
-    "prettier": "3.3.3",
+    "@types/node": "^22.13.8",
+    "playwright": "^1.50.1",
+    "prettier": "3.5.2",
     "ts-node": "10.9.2",
-    "typescript": "5.6.2"
+    "typescript": "5.8.2"
   },
   "dependencies": {
     "@types/mailgun-js": "^0.22.18",
     "form-data": "^4.0.1",
-    "mailgun.js": "^10.2.3"
+    "mailgun.js": "^12.0.0"
   }
 }
