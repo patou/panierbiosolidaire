@@ -25,7 +25,7 @@
     "playwright": "^1.51.1",
     "prettier": "3.5.3",
     "ts-node": "10.9.2",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "dependencies": {
     "@types/mailgun-js": "^0.22.18",
