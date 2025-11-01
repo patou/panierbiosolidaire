@@ -47,10 +47,10 @@
   resolved "https://registry.npmjs.org/@tsconfig/node16/-/node16-1.0.4.tgz"
   integrity sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==
 
-"@types/mailgun-js@^0.22.18":
-  version "0.22.18"
-  resolved "https://registry.npmjs.org/@types/mailgun-js/-/mailgun-js-0.22.18.tgz"
-  integrity sha512-xp1QwOjlgvbV9MmKEEmmXN0PkfDxkVQjq0IU1c9DL7VBIQCPxnrqLTaCVm40Ig+YxUnt6e2dT/dNUhaKGQ+V6A==
+"@types/mailgun-js@^0.22.19":
+  version "0.22.19"
+  resolved "https://registry.yarnpkg.com/@types/mailgun-js/-/mailgun-js-0.22.19.tgz#b46930921dd53da174a1066771afac9bc69fd888"
+  integrity sha512-JupqVW4V6PgUfSGFssaEc60mSDqWT+FefGAMLO9hAKLzg0pS/4Vy6C/gkqxwZMnBkw3X3gz0newzUsYeixVHHQ==
   dependencies:
     "@types/node" "*"
     form-data "^2.5.0"
