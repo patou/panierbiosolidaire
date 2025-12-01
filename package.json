@@ -30,6 +30,6 @@
   "dependencies": {
     "@types/mailgun-js": "^0.22.18",
     "form-data": "^4.0.4",
-    "mailgun.js": "^12.1.0"
+    "mailgun.js": "^12.2.0"
   }
 }
