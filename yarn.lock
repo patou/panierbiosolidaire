@@ -248,10 +248,10 @@ hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
-mailgun.js@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/mailgun.js/-/mailgun.js-12.2.0.tgz#95200c0462c4ecf7e1df1798eed3c4e03c5328c2"
-  integrity sha512-FvkW8CD698aaXxbEfjW8ZSjpCgUnnP9osqyX2PSm3VD1n67MNTYOo2DP6aV/EIl3qJdVBRaFdKjqMsq0NKiDpw==
+mailgun.js@^12.4.1:
+  version "12.4.1"
+  resolved "https://registry.yarnpkg.com/mailgun.js/-/mailgun.js-12.4.1.tgz#82482066c64d9e1ac97042ee6f9dc2265bad9487"
+  integrity sha512-NkjtQuH75brwWPiCn/LyWVjeA+oBWevPMwiM0QXvz/bSgGyxfDcau8c8c7qjkEtVclfcOStQGxmkfw6/tqe9DA==
   dependencies:
     axios "^1.12.1"
     base-64 "^1.0.0"
