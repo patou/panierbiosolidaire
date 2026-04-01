@@ -279,17 +279,17 @@ mime-types@^2.1.12, mime-types@^2.1.35:
   dependencies:
     mime-db "1.52.0"
 
-playwright-core@1.58.1:
-  version "1.58.1"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.58.1.tgz#d63be2c9b7dcbdb035beddd4b42437bd3ca89107"
-  integrity sha512-bcWzOaTxcW+VOOGBCQgnaKToLJ65d6AqfLVKEWvexyS3AS6rbXl+xdpYRMGSRBClPvyj44njOWoxjNdL/H9UNg==
+playwright-core@1.59.0:
+  version "1.59.0"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.59.0.tgz#994d71ceffda76ea0f9e95eeb065db7532b87069"
+  integrity sha512-PW/X/IoZ6BMUUy8rpwHEZ8Kc0IiLIkgKYGNFaMs5KmQhcfLILNx9yCQD0rnWeWfz1PNeqcFP1BsihQhDOBCwZw==
 
-playwright@^1.58.1:
-  version "1.58.1"
-  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.58.1.tgz#63300e77a604c77264e1b499c0d94b54ed96d6ba"
-  integrity sha512-+2uTZHxSCcxjvGc5C891LrS1/NlxglGxzrC4seZiVjcYVQfUa87wBL6rTDqzGjuoWNjnBzRqKmF6zRYGMvQUaQ==
+playwright@^1.59.0:
+  version "1.59.0"
+  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.59.0.tgz#8d4b152c8d1c6b9e6e5bcb18b6cf62f51b9edb8b"
+  integrity sha512-wihGScriusvATUxmhfENxg0tj1vHEFeIwxlnPFKQTOQVd7aG08mUfvvniRP/PtQOC+2Bs52kBOC/Up1jTXeIbw==
   dependencies:
-    playwright-core "1.58.1"
+    playwright-core "1.59.0"
   optionalDependencies:
     fsevents "2.3.2"
 
