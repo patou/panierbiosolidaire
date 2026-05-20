@@ -38,5 +38,6 @@ jobs:
           PANIERBIO_LOGIN: ${{ secrets.PANIERBIO_LOGIN }}
           PANIERBIO_PASSWORD: ${{ secrets.PANIERBIO_PASSWORD }}
           MAILGUN_APIKEY: ${{ secrets.MAILGUN_APIKEY }}
+          EMAIL_CC: ${{ secrets.EMAIL_CC }}
           SEND_EMAIL: "${{ github.event_name == 'schedule' && 'yes' || 'no' }}"
 
