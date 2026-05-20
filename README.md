@@ -7,9 +7,10 @@ Si vous voulez utiliser ce script, il est nécessaire de forker le repos, et d'a
 
 ## Github action
 
-Pour l'utiliser, il faut définir trois variables d'environnement, dans les settings de github action.
+Pour l'utiliser, il faut définir quatre variables d'environnement, dans les settings de github action.
 - PANIERBIO_LOGIN : Email sur le site https://www.lespaniersbiosolidaires.fr/
 - PANIERBIO_PASSWORD : Mot de passe sur le site https://www.lespaniersbiosolidaires.fr/
+- EMAIL_CC : Liste optionnelle d'emails en copie, séparés par des virgules.
 - MAILGUN_APIKEY : Clé d'api pour mailgun.
 
 
@@ -20,10 +21,11 @@ Installer les dépendances
 npm install
 ```
 
-Pour lancer en local, il faut exporter les trois variables d'environnements :
+Pour lancer en local, il faut exporter les variables d'environnements :
 ```sh
 export PANIERBIO_LOGIN=""
 export PANIERBIO_PASSWORD=""
+export EMAIL_CC="copie1@example.com,copie2@example.com"
 export MAILGUN_APIKEY="demo"
 export SEND_EMAIL="no"
 ```

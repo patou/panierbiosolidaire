@@ -7,6 +7,16 @@ const mailgun = new Mailgun(FormData);
 const mailgunOptions = { username: 'api', key: process.env.MAILGUN_APIKEY || 'demo', url: "https://api.eu.mailgun.net" }
 const mg = mailgun.client(mailgunOptions);
 
+function parseCcList(rawCc?: string): string[] {
+  if (!rawCc) {
+    return [];
+  }
+  return rawCc
+    .split(',')
+    .map((email) => email.trim())
+    .filter((email) => email.length > 0);
+}
+
 
 const run = async () => {
   if (!process.env.PANIERBIO_LOGIN || !process.env.PANIERBIO_PASSWORD) {
@@ -48,10 +58,12 @@ Panier bio solidaire
     `
 
   const html = generateHtmlEmail(titre, contentHtml)
+  const ccList = parseCcList(process.env.EMAIL_CC)
 
   const data: MailgunMessageData = {
     from: 'Panier bio solidaire <amp@todo.patou.dev>',
     to: process.env.PANIERBIO_LOGIN,
+    cc: ccList.length > 0 ? ccList : undefined,
     subject: `Mon panier ${titre}`,
     text,
     html,
@@ -134,6 +146,7 @@ run();
 function logEmail(msg: string, data: MailgunMessageData) {
   console.log(`${msg} :
 à: ${data['to']}
+cc: ${Array.isArray(data['cc']) ? data['cc'].join(', ') : data['cc'] || '-'}
 sujet: ${data['subject']}
   
 ${data['text']?.replaceAll('\\n', '\n')}

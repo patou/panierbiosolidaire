@@ -3,6 +3,7 @@ declare global {
       interface ProcessEnv {
         PANIERBIO_LOGIN: string;
         PANIERBIO_PASSWORD: string;
+        EMAIL_CC?: string;
         NODE_ENV: 'development' | 'production';
         SEND_EMAIL: string;
       }
