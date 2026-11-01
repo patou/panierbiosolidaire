@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/patou/panierbiosolidaire#readme",
   "devDependencies": {
-    "@types/node": "^26.0.1",
+    "@types/node": "^26.6.6",
     "playwright": "^1.61.1",
     "prettier": "3.9.4",
     "ts-node": "10.9.2",
